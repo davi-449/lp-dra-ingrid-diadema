@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import draIngridImg from '@/assets/dra_ingrid.png';
 
 export const TrustSection = () => {
   return (
@@ -16,7 +17,7 @@ export const TrustSection = () => {
           >
             <div className="relative rounded-[2rem] overflow-hidden aspect-[4/5] bg-surface-1 shadow-[0_20px_50px_rgba(201,168,130,0.15)] transition-transform duration-500 group-hover:shadow-[0_30px_60px_rgba(201,168,130,0.2)]">
               <img
-                src="https://images.unsplash.com/photo-1598256989800-fea5ce5146f1?q=80&w=800&auto=format&fit=crop"
+                src={draIngridImg}
                 alt="Dra. Ingrid Guedes Segatti - Odontologia Premium"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"

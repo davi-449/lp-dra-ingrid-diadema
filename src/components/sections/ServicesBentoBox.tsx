@@ -1,22 +1,56 @@
 import { motion } from 'framer-motion';
 import { Sparkles, Sun, ShieldCheck, SmilePlus, Star, Heart } from 'lucide-react';
-import { MouseFollowCard } from '../ui/MouseFollowCard';
+
+const services = [
+  {
+    icon: Sparkles,
+    title: 'Estética Dental',
+    desc: 'Facetas em resina e porcelana — formato, cor e alinhamento exatos para naturalidade absoluta.',
+    accent: 'from-rose-100 to-orange-50',
+    iconBg: 'bg-rose-100 text-rose-500',
+  },
+  {
+    icon: Sun,
+    title: 'Clareamento',
+    desc: 'Resultados rápidos, sem sensibilidade prolongada. Branco natural de volta em poucas sessões.',
+    accent: 'from-amber-50 to-yellow-50',
+    iconBg: 'bg-amber-100 text-amber-600',
+  },
+  {
+    icon: SmilePlus,
+    title: 'Ortodontia',
+    desc: 'Aparelhos estéticos e alinhadores invisíveis para um sorriso alinhado com conforto.',
+    accent: 'from-sky-50 to-cyan-50',
+    iconBg: 'bg-sky-100 text-sky-500',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Implantes',
+    desc: 'Titânio de altíssima qualidade. Mastigação total de volta com tecnologia guiada e indolor.',
+    accent: 'from-emerald-50 to-green-50',
+    iconBg: 'bg-emerald-100 text-emerald-600',
+  },
+  {
+    icon: Star,
+    title: 'Harmonização',
+    desc: 'Botox e preenchimento com moderação, valorizando seus traços com segurança.',
+    accent: 'from-violet-50 to-purple-50',
+    iconBg: 'bg-violet-100 text-violet-500',
+  },
+  {
+    icon: Heart,
+    title: 'Atendimento Humanizado',
+    desc: 'Consultas sem pressa. Ambiente acolhedor premium onde seu conforto é prioridade absoluta.',
+    accent: 'from-pink-50 to-rose-50',
+    iconBg: 'bg-pink-100 text-pink-500',
+  },
+];
 
 export const ServicesBentoBox = () => {
-  const container = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren: 0.08 } }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 300, damping: 24 } }
-  };
-
   return (
     <section className="py-24 md:py-36 bg-surface-1 relative z-10 section-rounded" id="servicos">
       <div className="container mx-auto px-4 max-w-7xl">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -27,108 +61,31 @@ export const ServicesBentoBox = () => {
           <h2 className="text-4xl md:text-5xl font-bold font-serif text-text-main tracking-tight mb-6">
             Uma nova experiência em <span className="italic font-light text-primary">Cuidado Dental.</span>
           </h2>
-          <p className="text-xl text-text-muted font-light">
-            Procedimentos focados na sua saúde, estética e bem-estar, com a exclusividade que você procura em Diadema.
+          <p className="text-lg text-text-muted font-light">
+            Procedimentos focados na sua saúde, estética e bem-estar.
           </p>
         </motion.div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]"
-        >
-          {/* Card 1 - Span 2 */}
-          <motion.div variants={item} className="md:col-span-2 group h-full">
-            <MouseFollowCard className="h-full flex flex-col pt-8 px-8 pb-8 justify-between">
-              <div className="bg-white p-4 rounded-full w-max shadow-sm border border-primary/10">
-                <Sparkles className="w-8 h-8 text-primary" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.map((svc, i) => (
+            <motion.div
+              key={svc.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.4, delay: i * 0.08, ease: "easeOut" }}
+              className="group"
+            >
+              <div className={`relative rounded-3xl bg-gradient-to-br ${svc.accent} p-7 sm:p-8 border border-white/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(201,168,130,0.12)] hover:border-primary/20 h-full flex flex-col`}>
+                <div className={`${svc.iconBg} p-4 rounded-2xl w-max mb-5 transition-transform duration-300 group-hover:scale-110`}>
+                  <svc.icon className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-bold font-serif text-text-main mb-3">{svc.title}</h3>
+                <p className="text-text-muted leading-relaxed font-light text-sm flex-1">{svc.desc}</p>
               </div>
-              <div className="mt-6">
-                <h3 className="text-2xl font-bold font-serif text-text-main mb-2">Estética Dental</h3>
-                <p className="text-text-muted leading-relaxed font-light text-sm md:text-base">
-                  Facetas em resina e porcelana, corrigindo formato, cor e alinhamento para o sorriso dos seus sonhos com naturalidade absoluta.
-                </p>
-              </div>
-            </MouseFollowCard>
-          </motion.div>
-
-          {/* Card 2 */}
-          <motion.div variants={item} className="group h-full">
-            <MouseFollowCard className="h-full flex flex-col pt-8 px-8 pb-8 justify-between">
-              <div className="bg-white p-4 rounded-full w-max shadow-sm border border-primary/10">
-                <Sun className="w-8 h-8 text-primary" />
-              </div>
-              <div className="mt-6">
-                <h3 className="text-xl font-bold font-serif text-text-main mb-2">Clareamento</h3>
-                <p className="text-sm text-text-muted leading-relaxed font-light">
-                  Resultados rápidos e seguros, devolvendo o branco natural dos dentes sem sensibilidade prolongada.
-                </p>
-              </div>
-            </MouseFollowCard>
-          </motion.div>
-
-          {/* Card 3 */}
-          <motion.div variants={item} className="group h-full">
-            <MouseFollowCard className="h-full flex flex-col pt-8 px-8 pb-8 justify-between">
-              <div className="bg-white p-4 rounded-full w-max shadow-sm border border-primary/10">
-                <SmilePlus className="w-8 h-8 text-primary" />
-              </div>
-              <div className="mt-6">
-                <h3 className="text-xl font-bold font-serif text-text-main mb-2">Ortodontia</h3>
-                <p className="text-sm text-text-muted leading-relaxed font-light">
-                  Aparelhos estéticos e alinhadores invisíveis para um sorriso alinhado com o máximo de conforto.
-                </p>
-              </div>
-            </MouseFollowCard>
-          </motion.div>
-
-          {/* Card 4 - Span 2 */}
-          <motion.div variants={item} className="md:col-span-2 group h-full">
-            <MouseFollowCard className="h-full flex flex-col pt-8 px-8 pb-8 justify-between bg-white border-primary/20">
-              <div className="bg-surface-1 p-4 rounded-full w-max">
-                <ShieldCheck className="w-8 h-8 text-primary" />
-              </div>
-              <div className="mt-6">
-                <h3 className="text-2xl font-bold font-serif text-text-main mb-2">Implantes Dentários</h3>
-                <p className="text-text-muted leading-relaxed font-light text-sm md:text-base">
-                  Recupere a mastigação e o sorriso completo com implantes de titânio de altíssima qualidade. Procedimento indolor com tecnologia guiada.
-                </p>
-              </div>
-            </MouseFollowCard>
-          </motion.div>
-
-          {/* Card 5 */}
-          <motion.div variants={item} className="group h-full">
-            <MouseFollowCard className="h-full flex flex-col pt-8 px-8 pb-8 justify-between">
-              <div className="bg-white p-4 rounded-full w-max shadow-sm border border-primary/10">
-                <Star className="w-8 h-8 text-primary" />
-              </div>
-              <div className="mt-6">
-                <h3 className="text-xl font-bold font-serif text-text-main mb-2">Harmonização</h3>
-                <p className="text-sm text-text-muted leading-relaxed font-light">
-                  Botox e preenchimento labial com moderação, valorizando seus traços com total segurança.
-                </p>
-              </div>
-            </MouseFollowCard>
-          </motion.div>
-
-          {/* Card 6 - Span 3 */}
-          <motion.div variants={item} className="md:col-span-3 group h-full">
-            <MouseFollowCard className="h-full flex flex-col md:flex-row items-start md:items-center pt-8 px-8 pb-8 gap-8 border-primary/30">
-              <div className="bg-primary/10 p-5 rounded-full w-max shrink-0">
-                <Heart className="w-10 h-10 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold font-serif text-text-main mb-2">Atendimento Humanizado</h3>
-                <p className="text-text-muted leading-relaxed font-light">
-                  Esqueça a pressa. Nossas consultas são desenhadas para entender você, seus medos e seus desejos. Ambiente acolhedor premium onde seu conforto é nossa maior prioridade.
-                </p>
-              </div>
-            </MouseFollowCard>
-          </motion.div>
-        </motion.div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
