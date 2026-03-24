@@ -3,6 +3,8 @@ import { SocialProofStrip } from './components/sections/SocialProofStrip';
 import { ServicesBentoBox } from './components/sections/ServicesBentoBox';
 import { TrustSection } from './components/sections/TrustSection';
 import { MapSection } from './components/sections/MapSection';
+import { BeforeAfterSection } from './components/sections/BeforeAfterSection';
+import { SmileJourneySection } from './components/sections/SmileJourneySection';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 
 function App() {
@@ -11,7 +13,9 @@ function App() {
       <HeroSection />
       <SocialProofStrip />
       <ServicesBentoBox />
+      <BeforeAfterSection />
       <TrustSection />
+      <SmileJourneySection />
       <MapSection />
       <FloatingWhatsApp />
       
