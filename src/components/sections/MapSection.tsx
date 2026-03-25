@@ -21,7 +21,7 @@ export const MapSection = () => {
 
             <div className="space-y-8 mt-12 text-text-main">
               <div className="flex items-start gap-4 group">
-                <div className="bg-white p-4 rounded-2xl shadow-sm border border-primary/10 transition-colors group-hover:border-primary/30">
+                <div className="bg-white p-4 rounded-2xl shadow-sm border-2 border-primary/20 transition-colors group-hover:border-primary/30">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
@@ -31,7 +31,7 @@ export const MapSection = () => {
               </div>
 
               <div className="flex items-start gap-4 group">
-                <div className="bg-white p-4 rounded-2xl shadow-sm border border-primary/10 transition-colors group-hover:border-accent-trust/40">
+                <div className="bg-white p-4 rounded-2xl shadow-sm border-2 border-primary/20 transition-colors group-hover:border-accent-trust/40">
                   <Clock className="w-6 h-6 text-accent-trust" />
                 </div>
                 <div className="w-full">
@@ -66,13 +66,13 @@ export const MapSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:col-span-7 h-[500px] w-full bg-white rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(201,168,130,0.1)] relative border border-primary/10 isolate"
+            className="lg:col-span-7 h-[500px] w-full bg-zinc-900 rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(201,168,130,0.1)] relative border-2 border-primary/20 isolate"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.116527018873!2d-46.6087563!3d-23.6708388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce44e3f11e96a3%3A0xe2a8a7df41566!2sR.%20Bruno%20Spinosa%2C%20231%20-%20Vila%20Nogueira%2C%20Diadema%20-%20SP%2C%2009951-010!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
               width="100%"
               height="100%"
-              style={{ border: 0, filter: 'grayscale(30%) contrast(105%) opacity(90%) sepia(20%) hue-rotate(-15deg)' }}
+              style={{ border: 0, mixBlendMode: 'luminosity', opacity: 0.85 }}
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

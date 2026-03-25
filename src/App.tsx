@@ -6,6 +6,8 @@ import { MapSection } from './components/sections/MapSection';
 import { BeforeAfterSection } from './components/sections/BeforeAfterSection';
 import { SmileJourneySection } from './components/sections/SmileJourneySection';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { DaviCodeBadge } from './components/ui/DaviCodeBadge';
+
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
           <p className="text-xs text-text-muted/60">
             &copy; {new Date().getFullYear()} Dra. Ingrid Guedes Segatti. Todos os direitos reservados.
           </p>
+          <DaviCodeBadge />
         </div>
       </footer>
     </main>
