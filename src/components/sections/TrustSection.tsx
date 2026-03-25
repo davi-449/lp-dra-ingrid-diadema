@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
-import draIngridImg from '@/assets/dra_ingrid.png';
+import draIngridImg from '@/assets/dra_ingrid_ia.png';
 
 export const TrustSection = () => {
   return (

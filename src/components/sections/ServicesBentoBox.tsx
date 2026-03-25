@@ -77,7 +77,7 @@ export const ServicesBentoBox = () => {
           >
             <div className="absolute inset-0 bg-surface-2">
               <img 
-                src="/assets/dra_ingrid.png" 
+                src="/assets/dra_ingrid_ia.png" 
                 alt="Estética Dental" 
                 className="w-full h-full object-cover object-top opacity-60 transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
